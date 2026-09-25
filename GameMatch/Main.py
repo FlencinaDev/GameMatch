@@ -1,3 +1,6 @@
+import time
+from colorama import Fore, Style
+
 # ==================================================
 #             Control de consultas
 # ==================================================
@@ -7,7 +10,7 @@ continuar = "Si"
 while continuar == "Si":
 
     # ==================================================
-    # DATOS DEL JUGADOR
+    #                DATOS DEL JUGADOR
     # ==================================================
 
     edad = int(input("⌛ Ingrese su edad: "))
@@ -39,7 +42,7 @@ while continuar == "Si":
     else:
         quiere_socializar = False
 
-
+#region             CALCULOS
     # ==================================================
     # CALCULOS
     # ==================================================
@@ -87,10 +90,10 @@ while continuar == "Si":
         es_exigencia_alta = True
     else:
         es_exigencia_alta = False
-
+#endregion
 
     # ==================================================
-    # MOTOR DE REGLAS
+    #                 MOTOR DE REGLAS                             (Este es el núcleo del sistema de recomendación, donde se aplican las reglas para generar recomendaciones basadas en las respuestas del jugador)
     # ==================================================
 
     score = 0
@@ -101,7 +104,7 @@ while continuar == "Si":
 
     nueva_recomendacion = ""
 
-
+#region              reglas/sistema                               (No modifiquen esto, solo si se realizan cambios en las reglas y/o correcciones de errores)
     # -------------------- R1 --------------------------
 
     # Partida rápida
@@ -371,6 +374,7 @@ while continuar == "Si":
             elif recomendacion_1 != nueva_recomendacion and recomendacion_2 != nueva_recomendacion and recomendacion_3 == "":
                 recomendacion_3 = nueva_recomendacion
 
+#endregion
 
     # ==================================================
     #               RESULTADO FINAL
@@ -392,18 +396,6 @@ while continuar == "Si":
     #              MOSTRAR RESULTADOS
     # ==================================================
 
-    print("╔══════════════════════════════════════════╗")
-    print("║                                          ║")
-    print("║             🎮 GAMEMATCH 🎮             ║")
-    print("║                                          ║")
-    print("╠══════════════════════════════════════════╣")
-    print("║            RECOMENDACIONES               ║")
-    print("╚══════════════════════════════════════════╝")
-
-    print("╔══════════════════════════════════════════╗")
-    print("║                RESULTADO                 ║")
-    print("╠══════════════════════════════════════════╣")
-
     if recomendacion_1 != "":
         print("🎮", recomendacion_1)
 
@@ -417,18 +409,10 @@ while continuar == "Si":
         print("❌ No se encontraron recomendaciones específicas para este perfil.")
 
 
-    print("╠══════════════════════════════════════════╣")
-    print("║ 🎯 Score final:", score)
-    print("║ 📊 Resultado:", resultado_general)
-    print("╚══════════════════════════════════════════╝")
-
     # ==================================================
-    #              NUEVA CONSULTA
+    #                 NUEVA CONSULTA
     # ==================================================
 
-    print("╔══════════════════════════════════════════════════════╗")
     continuar = input("🔄 ¿Querés realizar otra consulta? (Si/No): ")
-    print("╚══════════════════════════════════════════════════════╝")
-
 
 #controlar las consultas
